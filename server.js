@@ -17,8 +17,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var MongoClient = mongodb.MongoClient;
-var mongoUrl = 'mongodb://localhost:27017/project_2';
-// var mongoUrl = 'mongodb://heroku_0vf9635k:8dv42argrk3a0riv9faii59rlh@ds029745.mlab.com:29745/heroku_0vf9635k/project_2';
+// var mongoUrl = 'mongodb://localhost:27017/project_2';
+var mongoUrl = 'mongodb://heroku_0vf9635k:8dv42argrk3a0riv9faii59rlh@ds029745.mlab.com:29745/heroku_0vf9635k/project_2';
 
 
 PORT = process.envPORT || 80;
@@ -147,14 +147,14 @@ app.get('/favorites', function(request, response){
   })
 })
 
-// app.listen(PORT, function(){
-//   console.log('listen to events on a PORT heroku')
-// });
-
-
-app.listen(3000, function(){
+app.listen(PORT, function(){
   console.log('listen to events on a PORT heroku')
 });
+
+
+// app.listen(3000, function(){
+//   console.log('listen to events on a PORT heroku')
+// });
 
 
 
