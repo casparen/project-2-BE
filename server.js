@@ -23,7 +23,7 @@ var mongoUrl = 'mongodb://localhost:27017/project_2';
 
 PORT = process.envPORT || 80;
 
-//
+
 // app.get('/', function(request, response){
 //   response.json({"description":"project_2 data base"});
 // });
@@ -150,7 +150,7 @@ app.get('/favorites', function(request, response){
 // app.listen(PORT, function(){
 //   console.log('listen to events on a PORT heroku')
 // });
-/
+
 
 app.listen(3000, function(){
   console.log('listen to events on a PORT heroku')
