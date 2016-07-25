@@ -46,11 +46,11 @@ app.post('/search', function (req, res){
 /////////////////////////////////////////////////////////////////////////////////////google search
 app.post('/searchPlaces', function(req, res){
 
-  var endPoint = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json?'
-  var queryString = 'location='
+  var endPoint = 'https://maps.googleapis.com/maps/api/place/nearbysearch/json'
+  var queryString = '?location='
   var lat = req.body.lat + ','
   var lng = req.body.lng
-  var queryString2 = '&radius=2000'
+  var queryString2 = '&radius=500'
   var queryString3 = '&keyword='
   var keyword = req.body.keyword
   var queryString4 = '&key='
