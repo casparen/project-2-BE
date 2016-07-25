@@ -91,7 +91,7 @@ app.post('/favorites/new', function (request, response){
       console.log('Unable to connect to the mongoDB server. ERROR:', err);
     } else {
       // We are connected!
-      console.log('Connection established to', mongoUrl);
+      console.log('Connection established to', mongourl);
       console.log('Adding new user...');
 
       /* Insert */
