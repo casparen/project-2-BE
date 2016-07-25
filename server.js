@@ -50,7 +50,7 @@ app.post('/searchPlaces', function(req, res){
   var queryString = '?location='
   var lat = req.body.lat + ','
   var lng = req.body.lng
-  var queryString2 = '&radius=500'
+  var queryString2 = '&radius=200'
   var queryString3 = '&keyword='
   var keyword = req.body.keyword
   var queryString4 = '&key='
