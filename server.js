@@ -23,9 +23,9 @@ var mongourl = 'mongodb://heroku_0vf9635k:8dv42argrk3a0riv9faii59rlh@ds029745.ml
 PORT = process.env.PORT || 80;
 
 
-// app.get('/', function(request, response){
-//   response.json({"description":"project_2 data base"});
-// });
+app.get('/', function(request, response){
+  response.json({"description":"project_2 data base"});
+});
 
 
 ///////////////////////////////////////////////////////////////////////////////open data search
