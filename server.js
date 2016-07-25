@@ -20,7 +20,7 @@ var MongoClient = mongodb.MongoClient;
 // var mongoUrl = 'mongodb://localhost:27017/project_2';
 var mongourl = 'mongodb://heroku_0vf9635k:8dv42argrk3a0riv9faii59rlh@ds029745.mlab.com:29745/heroku_0vf9635k/project_2';
 
-PORT = process.envPORT || 80;
+PORT = process.env.PORT || 80;
 
 
 // app.get('/', function(request, response){
