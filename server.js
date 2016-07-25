@@ -85,7 +85,7 @@ app.post('/favorites/new', function (request, response){
   console.log('request');
   console.log("request.body", request.body);
 
-  MongoClient.connect(mongoUrl, function (err, db) {
+  MongoClient.connect(mongourl, function (err, db) {
     var favoritesCollection = db.collection('favorites');
     if (err) {
       console.log('Unable to connect to the mongoDB server. ERROR:', err);
@@ -119,7 +119,7 @@ app.post('/favorites/new', function (request, response){
 
 ///////////////////////////////////////////////////////////////view favorites
 app.get('/favorites', function(request, response){
-  MongoClient.connect(mongoUrl, function(err, db){
+  MongoClient.connect(mongourl, function(err, db){
     var favoritesCollection = db.collection('favorites');
     if(err){
       console.log('unable to connect to the mongoDB server', err);
