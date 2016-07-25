@@ -17,9 +17,8 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 var MongoClient = mongodb.MongoClient;
-// var mongoUrl = 'mongodb://localhost:27017/project_2';
-var mongoUrl = 'mongodb://heroku_0vf9635k:8dv42argrk3a0riv9faii59rlh@ds029745.mlab.com:29745/heroku_0vf9635k/project_2';
-
+var mongoUrl = 'mongodb://localhost:27017/project_2';
+// var mongoUrl = 'mongodb://heroku_0vf9635k:8dv42argrk3a0riv9faii59rlh@ds029745.mlab.com:29745/heroku_0vf9635k/project_2';
 
 PORT = process.envPORT || 80;
 
@@ -147,14 +146,65 @@ app.get('/favorites', function(request, response){
   })
 })
 
-app.listen(PORT, function(){
-  console.log('listen to events on a PORT heroku')
-});
+//important to rememeber is placeName the key of the object
+////////////////////////////////////////////////////////////////////////////delete fav
+app.delete('/favorites/:placeName', function(request, response){
+  // console.log("request.body:", request.body);
+  // console.log("request.params:", request.params);
+
+  MongoClient.connect(mongoUrl, function(err, db){
+    var favoritesCollection = db.collection('favorites');
+    if(err){
+      console.log("unable to connect to the mongoDB server. ERROR", err);
+    }
+    else {
+      console.log("deleting by name...");
+
+    //deleting
+    favoritesCollection.remove(request.params, function(err, numOfRemovedDocs){
+      console.log("numOfRemovedDocs", numOfRemovedDocs);
+      if(err){
+        console.log("error", err);
+      }
+      else {
+        favoritesCollection.find().toArray(function(err, result){
+          if(err){
+            console.log("ERROR", err);
+            response.json("error");
+          }
+          else if (result.length){
+            console.log("found", result);
+            response.json(result);
+          }
+          else {
+            console.log("No documents found with defined search criteria");
+            response.json("none found")
+          }
+          db.close(function(){
+            console.log("database CLOSED");
+          })
+        })
+      }
+    })
+    }
+  })
+})
 
 
-// app.listen(3000, function(){
-//   console.log('listen to events on a PORT 3000')
+
+
+
+
+
+
+// app.listen(PORT, function(){
+//   console.log('listen to events on a PORT heroku')
 // });
+
+
+app.listen(3000, function(){
+  console.log('listen to events on a PORT 3000')
+});
 
 
 
